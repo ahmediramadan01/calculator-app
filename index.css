@@ -161,6 +161,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
+  min-height: 5.28rem;
 }
 
 .operand {
@@ -170,6 +171,11 @@ body {
   letter-spacing: 0.025rem;
   text-align: right;
   color: var(--operand-color);
+}
+
+.operator svg {
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .operator path {
@@ -205,9 +211,7 @@ body {
   box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.15);
 }
 
-.btn--blue,
-.btn--red,
-.btn--num {
+.calculator__surface .btn:not(.btn--equal) {
   padding: 0.4rem;
   border-width: 4rem;
   border-image-source: var(--border-img-src);
@@ -225,19 +229,21 @@ body {
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.15);
 }
 
-.btn--blue {
+.btn--all-clear,
+.btn--clear {
   color: var(--blue-color);
 }
 
-.btn--blue path {
+.btn--operator path {
   fill: var(--blue-color);
 }
 
-.btn--red path {
+.btn--operator:not([data-value="%"]) path {
   fill: var(--red-color);
 }
 
-.btn--num {
+.btn--num,
+.btn--decimal {
   color: var(--text-color);
 }
 
