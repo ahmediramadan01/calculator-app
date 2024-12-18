@@ -3,6 +3,9 @@
 /* Element selectors */
 
 const btnToggle = document.querySelector(".btn--toggle");
+const resultElement = document.querySelector(".result");
+const operandElement = document.querySelector(".operand");
+const operatorElement = document.querySelector(".operator");
 
 /* Theme toggle */
 
@@ -32,6 +35,10 @@ btnToggle.addEventListener("click", function () {
 let result = "0",
   operand = "",
   operator = "";
+
+let screenResult = "0",
+  screenOperand = "",
+  screenOperator = "";
 
 /* Helper functions */
 
@@ -66,3 +73,10 @@ function operate(firstOperand, secondOperand, mathOperator) {
       return "Invalid Operator";
   }
 }
+
+function updateScreen() {
+  resultElement.textContent = screenResult;
+  operandElement.textContent = screenOperand;
+  operatorElement.innerHTML = screenOperator;
+}
+updateScreen();
