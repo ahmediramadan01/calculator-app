@@ -7,6 +7,7 @@ const resultElement = document.querySelector(".result");
 const operandElement = document.querySelector(".operand");
 const operatorElement = document.querySelector(".operator");
 const btnsNum = document.querySelectorAll(".btn--num");
+const btnDecimal = document.querySelector(".btn--decimal");
 
 /* Theme toggle */
 
@@ -86,7 +87,6 @@ updateScreen();
 
 function appendNumber(event) {
   const clickedNumber = event.key || event.target.dataset.value;
-  console.log(`🚀 ~ clickedNumber ->`, clickedNumber);
 
   if (screenOperator === "" && screenResult.length <= 15) {
     screenResult === "" || screenResult === "0"
@@ -105,16 +105,35 @@ function appendNumber(event) {
   updateScreen();
 }
 
+function appendDecimalPoint() {
+  if (!result.includes(".")) {
+    if (result === "" || result === "0") {
+      result = "0.";
+    } else {
+      result += ".";
+    }
+
+    if (!operator) screenResult = result;
+    else screenOperand = operand;
+  }
+
+  updateScreen();
+}
+
 /* Event handlers */
 
 btnsNum.forEach((btn) => {
   btn.addEventListener("click", appendNumber);
 });
 
+btnDecimal.addEventListener("click", appendDecimalPoint);
+
 window.addEventListener("keydown", function (event) {
   event.preventDefault();
 
   if (!isNaN(+event.key)) {
     appendNumber(event);
+  } else if (event.key === ".") {
+    appendDecimalPoint(event);
   }
 });
