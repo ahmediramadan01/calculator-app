@@ -12,6 +12,7 @@ const btnPercentage = document.querySelector(".btn--percentage");
 const btnClear = document.querySelector(".btn--clear");
 const btnAllClear = document.querySelector(".btn--all-clear");
 const btnsOperator = document.querySelectorAll(".btn--operator");
+const btnEqual = document.querySelector(".btn--equal");
 
 /* Theme toggle */
 
@@ -210,6 +211,18 @@ function appendOperator(event) {
   updateScreen();
 }
 
+function getOperationResult() {
+  if (result && operand && operator) {
+    result = operate(operand, result, operator);
+
+    screenResult = result;
+    screenOperand = operand = "";
+    screenOperator = operator = "";
+  }
+
+  updateScreen();
+}
+
 /* Event handlers */
 
 btnsNum.forEach((btn) => {
@@ -227,6 +240,8 @@ btnAllClear.addEventListener("click", clearScreen);
 btnsOperator.forEach((btn) => {
   btn.addEventListener("click", appendOperator);
 });
+
+btnEqual.addEventListener("click", getOperationResult);
 
 window.addEventListener("keydown", function (event) {
   event.preventDefault();
@@ -246,5 +261,7 @@ window.addEventListener("keydown", function (event) {
     else if (event.key === "-") appendOperator("-");
     else if (event.key === "*") appendOperator("*");
     else if (event.key === "/") appendOperator("/");
+  } else if (event.key === "=" || event.key === "Enter") {
+    getOperationResult();
   }
 });
