@@ -6,9 +6,9 @@
 
 - Handles arithmetic operations including percentage (%) functionality
 - Supports clear (C) and all clear (AC) functionality
-- Toggles between negative and positive on a given input (+/-)
+- Uses default OS color theme with the ability to toggle between dark and light themes
 - Supports keyboard input
 
-![Calculator's Desktop Screenshot](./images/calculator-screenshot.png?raw=true "Calculator Screenshot")
+![Calculator's Desktop Screenshot](./calculator-screenshot.png?raw=true "Calculator Screenshot")
 
 Figma Design: [Calculator](https://app.bigdevsoon.me/projects/calculator/browser "Calculator's Figma Design")
