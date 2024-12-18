@@ -10,6 +10,7 @@ const btnsNum = document.querySelectorAll(".btn--num");
 const btnDecimal = document.querySelector(".btn--decimal");
 const btnPercentage = document.querySelector(".btn--percentage");
 const btnClear = document.querySelector(".btn--clear");
+const btnAllClear = document.querySelector(".btn--all-clear");
 
 /* Theme toggle */
 
@@ -136,6 +137,14 @@ function clear() {
   updateScreen();
 }
 
+function clearScreen() {
+  screenResult = result = "0";
+  screenOperand = operand = "";
+  screenOperator = operator = "";
+
+  updateScreen();
+}
+
 /* Event handlers */
 
 btnsNum.forEach((btn) => {
@@ -148,6 +157,8 @@ btnPercentage.addEventListener("click", divideByHundred);
 
 btnClear.addEventListener("click", clear);
 
+btnAllClear.addEventListener("click", clearScreen);
+
 window.addEventListener("keydown", function (event) {
   event.preventDefault();
 
@@ -159,5 +170,7 @@ window.addEventListener("keydown", function (event) {
     divideByHundred();
   } else if (event.key === "Backspace" || event.key === "Delete") {
     clear();
+  } else if (event.key === "Escape") {
+    clearScreen();
   }
 });
