@@ -9,6 +9,7 @@ const operatorElement = document.querySelector(".operator");
 const btnsNum = document.querySelectorAll(".btn--num");
 const btnDecimal = document.querySelector(".btn--decimal");
 const btnPercentage = document.querySelector(".btn--percentage");
+const btnClear = document.querySelector(".btn--clear");
 
 /* Theme toggle */
 
@@ -124,6 +125,17 @@ function divideByHundred() {
   updateScreen();
 }
 
+function clear() {
+  if (result === "0" || result === "" || result.length === 1) {
+    result = "0";
+  } else {
+    result = result.slice(0, -1);
+  }
+  screenResult = result;
+
+  updateScreen();
+}
+
 /* Event handlers */
 
 btnsNum.forEach((btn) => {
@@ -134,6 +146,8 @@ btnDecimal.addEventListener("click", appendDecimalPoint);
 
 btnPercentage.addEventListener("click", divideByHundred);
 
+btnClear.addEventListener("click", clear);
+
 window.addEventListener("keydown", function (event) {
   event.preventDefault();
 
@@ -143,5 +157,7 @@ window.addEventListener("keydown", function (event) {
     appendDecimalPoint(event);
   } else if (event.key === "%") {
     divideByHundred();
+  } else if (event.key === "Backspace" || event.key === "Delete") {
+    clear();
   }
 });
