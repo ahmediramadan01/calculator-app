@@ -234,11 +234,11 @@ body {
   color: var(--blue-color);
 }
 
-.btn--operator path {
+.btn--percentage path {
   fill: var(--blue-color);
 }
 
-.btn--operator:not([data-value="%"]) path {
+.btn--operator path {
   fill: var(--red-color);
 }
 

@@ -8,6 +8,7 @@ const operandElement = document.querySelector(".operand");
 const operatorElement = document.querySelector(".operator");
 const btnsNum = document.querySelectorAll(".btn--num");
 const btnDecimal = document.querySelector(".btn--decimal");
+const btnPercentage = document.querySelector(".btn--percentage");
 
 /* Theme toggle */
 
@@ -120,6 +121,20 @@ function appendDecimalPoint() {
   updateScreen();
 }
 
+function divideByHundred() {
+  if (result === "" || result === "0" || result === "0.") {
+    result = "0.00";
+  } else if (result == 0) {
+    result += "00";
+  } else {
+    result = result / 100;
+  }
+
+  screenResult = result;
+
+  updateScreen();
+}
+
 /* Event handlers */
 
 btnsNum.forEach((btn) => {
@@ -128,6 +143,8 @@ btnsNum.forEach((btn) => {
 
 btnDecimal.addEventListener("click", appendDecimalPoint);
 
+btnPercentage.addEventListener("click", divideByHundred);
+
 window.addEventListener("keydown", function (event) {
   event.preventDefault();
 
@@ -135,5 +152,7 @@ window.addEventListener("keydown", function (event) {
     appendNumber(event);
   } else if (event.key === ".") {
     appendDecimalPoint(event);
+  } else if (event.key === "%") {
+    divideByHundred();
   }
 });
