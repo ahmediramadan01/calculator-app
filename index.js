@@ -1,6 +1,11 @@
 "use script";
 
+/* Element selectors */
+
 const btnToggle = document.querySelector(".btn--toggle");
+
+/* Theme toggle */
+
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 const currentTheme = localStorage.getItem("theme");
@@ -21,3 +26,9 @@ btnToggle.addEventListener("click", function () {
   }
   localStorage.setItem("theme", theme);
 });
+
+/* Initial variables */
+
+let result = "0",
+  operand = "",
+  operator = "";
