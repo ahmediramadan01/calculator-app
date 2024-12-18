@@ -186,6 +186,7 @@ function appendOperator(event) {
     screenResult = result;
   } else if (operand && operator) {
     operand = operate(operand, result, operator);
+    if (operand.toString().length > 15) operand = +operand.toFixed(15);
     screenOperand = operand;
 
     result = "0";
@@ -214,6 +215,7 @@ function appendOperator(event) {
 function getOperationResult() {
   if (result && operand && operator) {
     result = operate(operand, result, operator);
+    if (result.toString().length > 15) result = +result.toFixed(15);
 
     screenResult = result;
     screenOperand = operand = "";
