@@ -32,3 +32,37 @@ btnToggle.addEventListener("click", function () {
 let result = "0",
   operand = "",
   operator = "";
+
+/* Helper functions */
+
+function add(x, y) {
+  return parseFloat(x) + parseFloat(y);
+}
+
+function subtract(x, y) {
+  return parseFloat(x) - parseFloat(y);
+}
+
+function multiply(x, y) {
+  return parseFloat(x) * parseFloat(y);
+}
+
+function divide(x, y) {
+  if (parseFloat(y) === 0) return undefined;
+  return parseFloat(x) / parseFloat(x);
+}
+
+function operate(firstOperand, secondOperand, mathOperator) {
+  switch (mathOperator) {
+    case "+":
+      return add(firstOperand, secondOperand);
+    case "-":
+      return subtract(firstOperand, secondOperand);
+    case "*":
+      return multiply(firstOperand, secondOperand);
+    case "/":
+      return divide(firstOperand, secondOperand);
+    default:
+      return "Invalid Operator";
+  }
+}
