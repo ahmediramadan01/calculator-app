@@ -89,19 +89,9 @@ updateScreen();
 function appendNumber(event) {
   const clickedNumber = event.key || event.target.dataset.value;
 
-  if (screenOperator === "" && screenResult.length <= 15) {
-    screenResult === "" || screenResult === "0"
-      ? (result = clickedNumber)
-      : (result += clickedNumber);
+  result === "" || result === "0" ? (result = clickedNumber) : (result += clickedNumber);
 
-    screenResult = result;
-  } else if (screenOperator === "" && screenOperand.length <= 15) {
-    screenOperand === "" || screenOperand === "0"
-      ? (operand = clickedNumber)
-      : (operand += clickedNumber);
-
-    screenOperand = operand;
-  }
+  screenResult = result;
 
   updateScreen();
 }
@@ -114,8 +104,7 @@ function appendDecimalPoint() {
       result += ".";
     }
 
-    if (!operator) screenResult = result;
-    else screenOperand = operand;
+    screenResult = result;
   }
 
   updateScreen();
