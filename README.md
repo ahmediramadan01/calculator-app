@@ -1,4 +1,4 @@
-# Calculator: **[LIVE](https://ahmediramadan01.github.io/calculator/ "Calculator's Live Preview")**
+# Calculator: **[LIVE](https://ahmediramadan01.github.io/calculator-app/ "Calculator's Live Preview")**
 
 ## Technologies: HTML, CSS, JavaScript
 
